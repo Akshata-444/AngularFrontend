@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.user-button, .admin-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.user-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+}
+
+.admin-button {
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+}
+
+.user-button:hover, .admin-button:hover {
+  opacity: 0.8;
+}

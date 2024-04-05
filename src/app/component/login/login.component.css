@@ -1,0 +1,54 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0ebeb; /* Light pink background */
+}
+
+.login-card {
+  background-color: #f4f7ff; /* Light blue card background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+}
+
+.login-heading {
+  text-align: center;
+  color: #5d3cff; /* Purple heading color */
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9f9f9f; /* Light gray border */
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff4d6c; /* Pink button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #8646ff; /* Darker pink hover color */
+}
+
+.login-error {
+  color: #ff0000; /* Red error message color */
+  margin-top: 10px;
+}

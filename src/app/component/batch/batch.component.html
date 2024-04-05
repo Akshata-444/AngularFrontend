@@ -1,0 +1,22 @@
+<h1>Batch Details</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Batch ID</th>
+      <th>Batch Name</th>
+      <th>Mentor ID</th>
+      <th>Domain</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let batch of batches">
+      <td>{{ batch.batchId }}</td>
+      <td>{{ batch.batchName }}</td>
+      <td>{{ batch.mentorId }}</td>
+      <td>{{ batch.domain }}</td>
+      <td>{{ batch.description }}</td>
+    </tr>
+  </tbody>
+</table>
