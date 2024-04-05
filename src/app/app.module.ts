@@ -12,6 +12,7 @@ import { LoginComponent } from './component/login/login.component';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { BatchComponent } from './component/batch/batch.component';
+import { AddbatchComponent } from './addbatch/addbatch.component';
 
 
 
@@ -21,7 +22,8 @@ import { BatchComponent } from './component/batch/batch.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    BatchComponent
+    BatchComponent,
+    AddbatchComponent
 
 
 
