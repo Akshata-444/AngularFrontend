@@ -38,10 +38,18 @@ export class LoginComponent {
           var User=this.authservice.getcurrentUser();
           if(User&&User.Role==1){
             this.jwtToken="IT IS A MENTOR";
-            this.router.navigate(['/Mentor_dashboard']);
+            this.router.navigate(['/dashboard']);
+          }
+          else if(User&&User.Role==2){
+            this.jwtToken="IT IS A ADMIN";
+            this.router.navigate(['/admindashboard']);
+          }
+          else if(User&&User.Role==0){
+            this.jwtToken="IT IS A Employee";
+            this.router.navigate(['/employeedashboard']);
           }
           else{
-            this.jwtToken="IT IS Not a Mentor";
+            this.jwtToken="You are not a User";
             this.router.navigate(['/dashboard']);
           }
 

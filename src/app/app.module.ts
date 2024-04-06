@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { BatchComponent } from './component/batch/batch.component';
 import { AddbatchComponent } from './component/addbatch/addbatch.component';
 import { DeleteBatchComponent } from './component/deletebatch/deletebatch.component';
+import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
+import { EmployeedashboardComponent } from './component/employeedashboard/employeedashboard.component';
 
 
 
@@ -27,7 +29,9 @@ import { DeleteBatchComponent } from './component/deletebatch/deletebatch.compon
     LoginComponent,
     BatchComponent,
     AddbatchComponent,
-    DeleteBatchComponent
+    DeleteBatchComponent,
+    AdmindashboardComponent,
+    EmployeedashboardComponent
 
 
 
