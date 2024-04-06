@@ -39,6 +39,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/addbatch">Create Batch Profile</a>
           </li>
+          <!-- Add the "Delete Batch" option in the navbar -->
+          <li class="nav-item">
+            <a class="nav-link" href="/deletebatch">Delete Batch</a>
+          </li>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -47,6 +51,7 @@
       </div>
     </div>
   </nav>
+
 
   <table class="table batch-table">
     <thead>
@@ -68,7 +73,7 @@
         <td>{{ batch.description }}</td>
         <td class="batch-actions"> <!-- Added class to align buttons -->
           <button class="btn btn-success">View Batch</button> <!-- View button -->
-          <button class="btn btn-danger">Delete</button> <!-- Delete button -->
+          <button class="btn btn-danger" click="/deleteBatch">Delete</button> <!-- Delete button -->
         </td>
       </tr>
     </tbody>

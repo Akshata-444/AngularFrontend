@@ -4,6 +4,7 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BatchComponent } from './component/batch/batch.component';
 import { AddbatchComponent } from './component/addbatch/addbatch.component';
+import { DeleteBatchComponent } from './component/deletebatch/deletebatch.component';
 
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
 {
   path:"addbatch",
   component:AddbatchComponent,
+},
+{
+  path:"deletebatch",
+  component:DeleteBatchComponent,
 }
 
 
