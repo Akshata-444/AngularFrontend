@@ -25,59 +25,58 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Batch Details</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Back</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/addbatch">Create Batch Profile</a>
-          </li>
-          <!-- Add the "Delete Batch" option in the navbar -->
-          <li class="nav-item">
-            <a class="nav-link" href="/deletebatch">Delete Batch</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
-      </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="position-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Back</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/addbatch">Create Batch Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/deletebatch">Delete Batch</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main content area -->
+      <main class="col-md-10 ms-sm-auto px-4">
+        <!-- Navbar -->
+
+        <h1>Batches</h1>
+        <!-- Table content -->
+        <table class="table batch-table">
+          <thead>
+            <tr>
+              <th>Batch ID</th>
+              <th>Batch Name</th>
+              <th>Mentor ID</th>
+              <th>Domain</th>
+              <th>Description</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let batch of batches">
+              <td>{{ batch.batchId }}</td>
+              <td>{{ batch.batchName }}</td>
+              <td>{{ batch.mentorId }}</td>
+              <td>{{ batch.domain }}</td>
+              <td>{{ batch.description }}</td>
+              <td class="batch-actions">
+                <button class="btn btn-success">View Batch</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
     </div>
-  </nav>
-
-
-  <table class="table batch-table">
-    <thead>
-      <tr>
-        <th>Batch ID</th>
-        <th>Batch Name</th>
-        <th>Mentor ID</th>
-        <th>Domain</th>
-        <th>Description</th>
-        <th>Actions</th> <!-- Changed from "Action" to "Actions" -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let batch of batches">
-        <td>{{ batch.batchId }}</td>
-        <td>{{ batch.batchName }}</td>
-        <td>{{ batch.mentorId }}</td>
-        <td>{{ batch.domain }}</td>
-        <td>{{ batch.description }}</td>
-        <td class="batch-actions"> <!-- Added class to align buttons -->
-          <button class="btn btn-success">View Batch</button> <!-- View button -->
-          <button class="btn btn-danger" click="/deleteBatch">Delete</button> <!-- Delete button -->
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFOnpDpgj+Qv8qMFwWJrFhgQIWU1mqzZVgyNpEKbtSuQD0juEoNq6t6L/EY" crossorigin="anonymous"></script>
 </body>

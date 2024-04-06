@@ -11,6 +11,7 @@ import { DeleteBatch } from 'src/app/Models/deletebatch';
 })
 export class DeleteBatchComponent {
   batchId!: number;
+batches: any;
 
   constructor(private deleteBatchService: DeleteBatchService) {}
 
