@@ -1,28 +1,32 @@
-<div>
-  <h2>Add Batch with Employees</h2>
-  <form (ngSubmit)="uploadBatch()">
-    <div>
-      <label for="mentorId">Mentor ID:</label>
-      <input type="number" [(ngModel)]="batch.mentorId" id="mentorId" name="mentorId" required>
-    </div>
-    <div>
-      <label for="batchName">Batch Name:</label>
-      <input type="text" [(ngModel)]="batch.batchName" id="batchName" name="batchName" required>
-    </div>
-    <div>
-      <label for="domain">Domain:</label>
-      <input type="text" [(ngModel)]="batch.domain" id="domain" name="domain" required>
-    </div>
-    <div>
-      <label for="description">Description:</label>
-      <textarea [(ngModel)]="batch.description" id="description" name="description" required></textarea>
-    </div>
-    <div>
-      <label for="employeeInfoExcelFile">Employee Info Excel File:</label>
-      <input type="file" (change)="onFileChange($event)" id="employeeInfoExcelFile" name="employeeInfoExcelFile" accept=".xlsx, .xls" required>
-    </div>
-    <div>
-      <button type="submit">Upload Batch</button>
-    </div>
-  </form>
+<!-- addbatch.component.html -->
+
+<div class="background-container">
+  <div class="container">
+    <h2 class="mb-4 text-center">Add Batch with Employees</h2>
+    <form (ngSubmit)="uploadBatch()">
+      <div class="mb-3">
+        <label for="mentorId" class="form-label">Mentor ID:</label>
+        <input type="number" [(ngModel)]="batch.mentorId" id="mentorId" name="mentorId" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="batchName" class="form-label">Batch Name:</label>
+        <input type="text" [(ngModel)]="batch.batchName" id="batchName" name="batchName" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="domain" class="form-label">Domain:</label>
+        <input type="text" [(ngModel)]="batch.domain" id="domain" name="domain" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea [(ngModel)]="batch.description" id="description" name="description" class="form-control" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="employeeInfoExcelFile" class="form-label">Employee Info Excel File:</label>
+        <input type="file" (change)="onFileChange($event)" id="employeeInfoExcelFile" name="employeeInfoExcelFile" class="form-control" accept=".xlsx, .xls" required>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary glow-on-hover">Upload Batch</button>
+      </div>
+    </form>
+  </div>
 </div>

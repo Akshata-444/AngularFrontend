@@ -1,0 +1,91 @@
+/* addbatch.component.css */
+
+/* Apply bluish background color to the whole page */
+body {
+  background-color: #c7eaff; /* Light bluish background color */
+  margin: 0; /* Remove default body margin */
+}
+
+/* Background container */
+.background-container {
+  background-color: #87CEEB; /* Sky blue background color */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Style container with glass morphism effect */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent background color */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Box shadow for glass morphism effect */
+  web-backdrop-filter: blur(10px); /* Apply blur effect to background */
+}
+
+/* Form heading */
+.container h2 {
+  text-align: center;
+  color: #4169E1; /* Royal blue heading color */
+}
+
+/* Style form labels */
+.form-label {
+  font-weight: bold;
+  color: #4169E1; /* Royal blue label color */
+}
+
+/* Style form controls */
+.form-control {
+  background-color: rgba(135, 206, 250, 0.7); /* Light sky blue background color with transparency */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 255, 0.1);
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+/* Submit button */
+.btn-primary {
+  background-color: #4169E1; /* Royal blue color for button */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #fff; /* White text color */
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1E90FF; /* Dodger blue color on hover */
+}
+
+/* Glowing effect on hover */
+.glow-on-hover {
+  transition: 0.2s;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 10px #4169E1; /* Royal blue glow effect */
+}
+
+/* Additional styling for textarea */
+textarea.form-control {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Style file input */
+input[type="file"].form-control {
+  padding: 8px; /* Adjust padding for file input */
+}
+
+/* Center align submit button */
+.d-flex.justify-content-center {
+  text-align: center;
+}
