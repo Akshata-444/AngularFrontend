@@ -12,7 +12,8 @@ import { LoginComponent } from './component/login/login.component';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { BatchComponent } from './component/batch/batch.component';
-import { AddbatchComponent } from './addbatch/addbatch.component';
+import { AddbatchComponent } from './component/addbatch/addbatch.component';
+
 
 
 
@@ -24,6 +25,8 @@ import { AddbatchComponent } from './addbatch/addbatch.component';
     LoginComponent,
     BatchComponent,
     AddbatchComponent
+
+
 
 
 

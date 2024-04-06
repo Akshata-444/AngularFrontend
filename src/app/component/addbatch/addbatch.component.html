@@ -1,1 +1,28 @@
-<p>addbatch works!</p>
+<div>
+  <h2>Add Batch with Employees</h2>
+  <form (ngSubmit)="uploadBatch()">
+    <div>
+      <label for="mentorId">Mentor ID:</label>
+      <input type="number" [(ngModel)]="batch.mentorId" id="mentorId" name="mentorId" required>
+    </div>
+    <div>
+      <label for="batchName">Batch Name:</label>
+      <input type="text" [(ngModel)]="batch.batchName" id="batchName" name="batchName" required>
+    </div>
+    <div>
+      <label for="domain">Domain:</label>
+      <input type="text" [(ngModel)]="batch.domain" id="domain" name="domain" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea [(ngModel)]="batch.description" id="description" name="description" required></textarea>
+    </div>
+    <div>
+      <label for="employeeInfoExcelFile">Employee Info Excel File:</label>
+      <input type="file" (change)="onFileChange($event)" id="employeeInfoExcelFile" name="employeeInfoExcelFile" accept=".xlsx, .xls" required>
+    </div>
+    <div>
+      <button type="submit">Upload Batch</button>
+    </div>
+  </form>
+</div>

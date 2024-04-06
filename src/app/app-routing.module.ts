@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BatchComponent } from './component/batch/batch.component';
+import { AddbatchComponent } from './component/addbatch/addbatch.component';
 
 
 
@@ -19,6 +20,10 @@ const routes: Routes = [
 {
   path:"batch",
   component:BatchComponent,
+},
+{
+  path:"addbatch",
+  component:AddbatchComponent,
 }
 
 
