@@ -10,12 +10,24 @@ import { Router } from '@angular/router';
 import { AuthService } from './Services/auth.service';
 import { LoginComponent } from './component/login/login.component';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { BatchComponent } from './component/batch/batch.component';
 import { AddbatchComponent } from './component/addbatch/addbatch.component';
 import { DeleteBatchComponent } from './component/deletebatch/deletebatch.component';
 import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
 import { EmployeedashboardComponent } from './component/employeedashboard/employeedashboard.component';
+import { taskdashboardComponent } from './component/taskdashboard/taskdashboard.component';
+import { AddtaskComponent } from './component/addtask/addtask.component';
+import { GettaskComponent } from './component/gettask/gettask.component';
+import { SubtaskComponent } from './component/subtask/subtask.component';
+import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
+import { DeleteBatch } from './Models/deletebatch';
+
+
+
+
+
+
 
 
 
@@ -31,7 +43,16 @@ import { EmployeedashboardComponent } from './component/employeedashboard/employ
     AddbatchComponent,
     DeleteBatchComponent,
     AdmindashboardComponent,
-    EmployeedashboardComponent
+    EmployeedashboardComponent,
+    taskdashboardComponent,
+    AddtaskComponent,
+    GettaskComponent,
+    SubtaskComponent,
+    GetsubtaskComponent
+
+
+
+
 
 
 
@@ -48,11 +69,15 @@ import { EmployeedashboardComponent } from './component/employeedashboard/employ
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+
 
 
   ],
+  exports: [BatchComponent],
+
   providers: [
+    DatePipe,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

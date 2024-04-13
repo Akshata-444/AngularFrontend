@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Dashboard</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="search-container">
+    <input type="text" placeholder="Search...">
+  </div>
+  <a [routerLink]="['/addtask', batchId]" onclick="highlightBackground(this)">Assign Task</a>
+  <a [routerLink]="['/gettask', batchId]" onclick="highlightBackground(this)">AssignedTask</a>
+  <a href="#" onclick="highlightBackground(this)">Assign Employee</a>
+  <a href="#" onclick="highlightBackground(this)">Daily Updates</a>
+  <a href="#" onclick="highlightBackground(this)">Feedback</a>
+  <a href="/taskdashboard" onclick="highlightBackground(this)">Employee Details</a>
+  <!-- No need for a Back button in the sidebar -->
+</div>
+
+<script>
+  function highlightBackground(element) {
+    // Reset background color for all links
+    var links = document.querySelectorAll('.sidebar a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].style.backgroundColor = "#4CAF50";
+    }
+
+    // Highlight the clicked link
+    element.style.backgroundColor = "#ffffff"; // Change to white
+  }
+  </script>
+<div *ngIf="excelData.length > 0">
+  <h2>Batch Details</h2>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Superset ID</th>
+          <th>Emp ID</th>
+          <th>Perner ID</th>
+          <th>Status</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>DOJ</th>
+          <th>Level</th>
+          <th>Grade</th>
+          <th>Type</th>
+          <th>Training Location</th>
+          <th>Assigned Location</th>
+          <th>Category</th>
+          <th>Technology</th>
+          <th>Practice</th>
+          <th>Training Start Date</th>
+          <th>Training End Date</th>
+          <th>Lab Details</th>
+          <th>Batch Code</th>
+          <th>BU</th>
+          <th>Personal Email ID</th>
+          <th>Phone No</th>
+          <th>Capgemini Email ID</th>
+          <th>College Degree</th>
+          <th>College Stream</th>
+          <th>College Name</th>
+          <th>College Type</th>
+          <th>College Location</th>
+          <th>Cognitive Score Rating</th>
+          <th>Technical Score Rating</th>
+          <th>SVAR Communication Score</th>
+          <th>CEWS Skill Imparted</th>
+          <th>Host Names</th>
+          <th>Earlier Mentor Name</th>
+          <th>Final Mentor Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of excelData">
+          <td>{{ detail.supersetId }}</td>
+          <td>{{ detail.empId }}</td>
+          <td>{{ detail.pernerId }}</td>
+          <td>{{ detail.status }}</td>
+          <td>{{ detail.name }}</td>
+          <td>{{ detail.gender }}</td>
+          <td>{{ detail.doj | date }}</td>
+          <td>{{ detail.level }}</td>
+          <td>{{ detail.grade }}</td>
+          <td>{{ detail.type }}</td>
+          <td>{{ detail.trainingLocation }}</td>
+          <td>{{ detail.assignedLocation }}</td>
+          <td>{{ detail.category }}</td>
+          <td>{{ detail.technology }}</td>
+          <td>{{ detail.practice }}</td>
+          <td>{{ detail.trainingStartDate | date }}</td>
+          <td>{{ detail.trainingEndDate | date }}</td>
+          <td>{{ detail.labDetails }}</td>
+          <td>{{ detail.batchCode }}</td>
+          <td>{{ detail.bu }}</td>
+          <td>{{ detail.personalEmailId }}</td>
+          <td>{{ detail.phoneNo }}</td>
+          <td>{{ detail.capgeminiEmailId }}</td>
+          <td>{{ detail.collegeDegree }}</td>
+          <td>{{ detail.collegeStream }}</td>
+          <td>{{ detail.collegeName }}</td>
+          <td>{{ detail.collegeType }}</td>
+          <td>{{ detail.collegeLocation }}</td>
+          <td>{{ detail.cognitiveScoreRating }}</td>
+          <td>{{ detail.technicalScoreRating }}</td>
+          <td>{{ detail.svarCommunicationScore }}</td>
+          <td>{{ detail.cewsSkillImparted }}</td>
+          <td>{{ detail.hostNames }}</td>
+          <td>{{ detail.earlierMentorName }}</td>
+          <td>{{ detail.finalMentorName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

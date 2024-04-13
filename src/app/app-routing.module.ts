@@ -7,6 +7,12 @@ import { AddbatchComponent } from './component/addbatch/addbatch.component';
 import { DeleteBatchComponent } from './component/deletebatch/deletebatch.component';
 import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
 import { EmployeedashboardComponent } from './component/employeedashboard/employeedashboard.component';
+import { taskdashboardComponent } from './component/taskdashboard/taskdashboard.component';
+import { AddtaskComponent } from './component/addtask/addtask.component';
+import { GettaskComponent } from './component/gettask/gettask.component';
+import { SubtaskComponent } from './component/subtask/subtask.component';
+import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
+
 
 
 
@@ -39,7 +45,26 @@ const routes: Routes = [
 {
   path:"employeedashboard",
   component:EmployeedashboardComponent,
-}
+},
+{
+  path : "taskdashboard/:batchId" ,
+  component : taskdashboardComponent
+},
+{ path: 'addtask/:batchId',
+ component: AddtaskComponent },
+ {
+  path:'gettask/:batchId',
+  component:GettaskComponent
+ },
+ {
+  path:'subtask/:taskId',
+  component: SubtaskComponent
+ },
+ {
+  path:'getsubtask/:taskId',
+  component: GetsubtaskComponent
+
+ }
 
 
 

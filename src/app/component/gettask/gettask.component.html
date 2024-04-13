@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h3>Tasks</h3>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Comments</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.taskName }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.priority }}</td>
+            <td>{{ task.deadLine }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.comments }}</td>
+            <td><button class="btn btn-primary" (click)="getsubTask(task.userTaskID)">View SubTask</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

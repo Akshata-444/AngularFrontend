@@ -1,0 +1,21 @@
+<form [formGroup]="subtaskForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" placeholder="Enter title" />
+    <div *ngIf="subtaskForm.get('title')?.invalid && subtaskForm.get('title')?.touched">
+      Title is required
+    </div>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" placeholder="Enter description"></textarea>
+    <div *ngIf="subtaskForm.get('description')?.invalid && subtaskForm.get('description')?.touched">
+      Description is required
+    </div>
+  </div>
+  <div>
+    <label for="fileUploadTaskFileUpload">File Upload</label>
+    <input type="file" id="fileUploadTaskFileUpload" (change)="handleFileInput($event)" />
+  </div>
+  <button type="submit">Submit</button>
+</form>

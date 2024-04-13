@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h3>Subtasks</h3>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subtask of subtasks">
+            <td>{{ subtask.title }}</td>
+            <td>{{ subtask.description }}</td>
+            <td>
+              <!-- Button to view submission -->
+
+              <button class="btn btn-primary">View Submissions</button>
+            </td>
+
+          </tr>
+          <!-- Add a message when there are no subtasks -->
+          <tr *ngIf="subtasks.length === 0">
+            <td colspan="2" class="text-center">No subtasks available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <a [routerLink]="['/getsubtask', TaskId]" onclick="highlightBackground(this)">Add Subtask</a>
+    </div>
+  </div>
+</div>

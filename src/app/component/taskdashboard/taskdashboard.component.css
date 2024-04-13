@@ -1,0 +1,62 @@
+/* Sidebar styling */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #4CAF50; /* Green color added to the sidebar */
+  padding-top: 20px;
+}
+
+/* Search bar styling */
+.search-container {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+.search-container input[type=text] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.sidebar a {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none; /* Remove underline from links */
+  transition: background-color 0.3s;
+}
+.sidebar a:hover {
+  background-color: #45a049;
+}
+
+/* Table styling */
+.table-container {
+  margin-left: 280px; /* Adjusted to match the width of the sidebar */
+  padding: 20px;
+}
+.table {
+  width: calc(100% - 280px); /* Adjusted to match the width of the sidebar */
+  border-collapse: collapse;
+}
+.table th, .table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+.table th {
+  background-color: #4CAF50;
+  color: white;
+}
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
