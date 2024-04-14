@@ -3,9 +3,10 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from '../Services/auth.service';
 
 
@@ -13,17 +14,27 @@ import { AuthService } from '../Services/auth.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+ // constructor(private authService: AuthService) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-    }
-    return next.handle(request);
-  }
+ constructor() {}
+
+ intercept(
+   request: HttpRequest<any>,
+   next: HttpHandler
+ ): Observable<HttpEvent<any>> {
+   return next.handle(request).pipe(
+     catchError((error: HttpErrorResponse) => {
+       let errorMessage = '';
+       if (error.error instanceof ErrorEvent) {
+         // Client-side errors
+         errorMessage = `Error: ${error.error.message}`;
+       } else {
+         // Server-side errors
+         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+       }
+       console.error(errorMessage);
+       return throwError(errorMessage);
+     })
+   );
+ }
 }

@@ -3,6 +3,8 @@ import { SubtaskService } from 'src/app/Services/subtask.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subtask } from 'src/app/Models/subtask';
 import { Router } from '@angular/router';
+import { Submission } from 'src/app/Models/submission';
+import { SubmissionService } from 'src/app/Services/submission.service';
 
 @Component({
   selector: 'app-subtask',
@@ -12,11 +14,14 @@ import { Router } from '@angular/router';
 export class SubtaskComponent implements OnInit {
   subtasks: Subtask[] = [];
   TaskId: string = '';
+  subtaskId :string = '';
 
   constructor(
     private subtaskService: SubtaskService,
     private route: ActivatedRoute,
     private router: Router,
+    private submissionService: SubmissionService
+
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +50,10 @@ export class SubtaskComponent implements OnInit {
 
   addsubTask(): void {
     this.router.navigate(['/getsubtask', this.TaskId]);
+  }
+
+  getsubmit(): void {
+    this.router.navigate(['/getsubmission', this.subtaskId]);
   }
 
 }

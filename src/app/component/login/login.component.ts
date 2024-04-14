@@ -3,65 +3,62 @@ import {FormBuilder,FormGroup ,Validators} from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Role } from 'src/app/Models/user';
 import { Router } from '@angular/router';
+import { LoginModel } from 'src/app/Models/login';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  loginForm!: FormGroup;
-  //checkotp!:FormGroup;
-  jwtToken: string | undefined;
-  error: string | undefined;
-  //isPasswordRequired: boolean = false; // Add this line
-  //otpResponse!: string;
+export class LoginComponent  {
+  user: LoginModel = {
+    UserName: '',
+    Password: ''
+  };
+  error: string | null = null;
+
 
   constructor(private fb: FormBuilder,
-    private authservice: AuthService,
+    private loginservice: AuthService,
     private router: Router) { }
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      UserName: ['', Validators.required],
-      Password: ['', Validators.required]
-    });
-
-  }
-
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const formData = this.loginForm.value;
-      this.authservice.login(formData).subscribe(
+    onSubmit(): void {
+      this.loginservice.login(this.user).subscribe(
         (response) => {
-          this.jwtToken = "Logged in sucessfully";
-          var User=this.authservice.getcurrentUser();
-          if(User&&User.Role==1){
-            this.jwtToken="IT IS A MENTOR";
-            this.router.navigate(['/dashboard']);
+          // Handle successful login response
+          console.log(response);
+          if (response && response.token) {
+            // Parse the JWT token to extract role
+            const decodedToken = this.parseJwt(response.token);
+            const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+            console.log('Role:', role);
+            if (role === 'Admin') {
+              this.router.navigate(['/admindashboard']);
+            } else if (role === 'Mentor') {
+              this.router.navigate(['/dashboard']);
+            } else if (role === 'Employee') {
+              this.router.navigate(['/employeedashboard']);
+            } else {
+              console.log('Unknown role:', role);
+              // Handle unknown role
+            }
           }
-          else if(User&&User.Role==2){
-            this.jwtToken="IT IS A ADMIN";
-            this.router.navigate(['/admindashboard']);
-          }
-          else if(User&&User.Role==0){
-            this.jwtToken="IT IS A Employee";
-            this.router.navigate(['/employeedashboard']);
-          }
-          else{
-            this.jwtToken="You are not a User";
-            this.router.navigate(['/dashboard']);
-          }
-
-          this.error = undefined;
-          //this.router.navigate(['/GetTransactions']);
-
         },
         (error) => {
-          this.error = error.error.message;
-          this.jwtToken = undefined;
+          // Handle error
+          this.error = error;
         }
       );
     }
+
+    // Function to parse JWT token
+    parseJwt(token: string) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      return JSON.parse(jsonPayload);
+    }
   }
-}

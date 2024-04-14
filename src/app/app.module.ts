@@ -22,6 +22,8 @@ import { GettaskComponent } from './component/gettask/gettask.component';
 import { SubtaskComponent } from './component/subtask/subtask.component';
 import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
 import { DeleteBatch } from './Models/deletebatch';
+import { GetsubmissionComponent } from './component/getsubmission/getsubmission.component';
+
 
 
 
@@ -48,7 +50,8 @@ import { DeleteBatch } from './Models/deletebatch';
     AddtaskComponent,
     GettaskComponent,
     SubtaskComponent,
-    GetsubtaskComponent
+    GetsubtaskComponent,
+    GetsubmissionComponent
 
 
 

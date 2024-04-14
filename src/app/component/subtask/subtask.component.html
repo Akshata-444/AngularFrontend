@@ -19,7 +19,7 @@
             <td>
               <!-- Button to view submission -->
 
-              <button class="btn btn-primary">View Submissions</button>
+              <a [routerLink]="['/getsubmission', subtaskId]" onclick="highlightBackground(this)">View submission</a>
             </td>
 
           </tr>

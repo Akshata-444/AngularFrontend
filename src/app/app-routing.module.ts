@@ -12,6 +12,7 @@ import { AddtaskComponent } from './component/addtask/addtask.component';
 import { GettaskComponent } from './component/gettask/gettask.component';
 import { SubtaskComponent } from './component/subtask/subtask.component';
 import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
+import { GetsubmissionComponent } from './component/getsubmission/getsubmission.component';
 
 
 
@@ -64,6 +65,10 @@ const routes: Routes = [
   path:'getsubtask/:taskId',
   component: GetsubtaskComponent
 
+ },
+ {
+  path:'getsubmission/:subtaskId',
+  component: GetsubmissionComponent
  }
 
 
