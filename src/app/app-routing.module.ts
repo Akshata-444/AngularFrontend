@@ -14,6 +14,13 @@ import { SubtaskComponent } from './component/subtask/subtask.component';
 import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
 import { GetsubmissionComponent } from './component/getsubmission/getsubmission.component';
 
+import { GetuserdetailComponent } from './component/getuserdetail/getuserdetail.component';
+import { AdgetbatchComponent } from './component/adgetbatch/adgetbatch.component';
+import { AdminadduserComponent } from './component/adminadduser/adminadduser.component';
+import { GetaduserComponent } from './component/getaduser/getaduser.component';
+import { EtaskComponent } from './component/etask/etask.component';
+import { UsergetsubtaskComponent } from './component/usergetsubtask/usergetsubtask.component';
+
 
 
 
@@ -44,7 +51,7 @@ const routes: Routes = [
   component:AdmindashboardComponent,
 },
 {
-  path:"employeedashboard",
+  path:"employeedashboard/:userId",
   component:EmployeedashboardComponent,
 },
 {
@@ -69,7 +76,33 @@ const routes: Routes = [
  {
   path:'getsubmission/:subtaskId',
   component: GetsubmissionComponent
- }
+ },
+
+ {
+  path:'getuserdetail/:userId',
+  component: GetuserdetailComponent
+ },
+ {
+  path:'adgetbatch',
+  component : AdgetbatchComponent
+ },
+ {
+  path:'adminadduser',
+  component: AdminadduserComponent
+ },
+ {
+  path: 'getaduser',
+  component: GetaduserComponent
+ },
+ {
+  path:'etask/:userId',
+  component: EtaskComponent
+ },
+{
+  path:'usergetsubtask/:taskId',
+  component: UsergetsubtaskComponent
+}
+
 
 
 

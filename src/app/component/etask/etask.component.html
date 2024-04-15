@@ -1,0 +1,29 @@
+<div *ngIf="tasks.length > 0">
+  <h2>Tasks</h2>
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Deadline</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.taskName }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.deadLine }}</td>
+        <td>
+
+          <a [routerLink]="['/usergetsubtask', task.userTaskID]" onclick="highlightBackground(this)"> View </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="tasks.length === 0">
+  <p>No tasks found.</p>
+</div>

@@ -1,0 +1,92 @@
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden; /* Ensure the balls are not visible outside the container */
+}
+
+.ball {
+  position: absolute;
+  width: 20px; /* Ball size */
+  height: 20px; /* Ball size */
+  background-color: #6dd669; /* Greenish color */
+  border-radius: 50%; /* Makes the ball circular */
+  animation: ballAnimation 10s infinite linear; /* Ball animation */
+  animation-delay: calc(-1 * var(--delay)); /* Delay each ball's animation */
+}
+
+@keyframes ballAnimation {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-100%) translateY(-100%) rotate(360deg);
+  }
+}
+
+/* Additional styles for the balls */
+.ball:nth-child(2) {
+  left: 30%;
+  --delay: 1s; /* Delay for the second ball */
+}
+
+.ball:nth-child(3) {
+  left: 60%;
+  --delay: 2s; /* Delay for the third ball */
+}
+
+/* Add more styles for additional balls as needed */
+
+.tab-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-auto-rows: 180px; /* Row height */
+  justify-content: center;
+  gap: 20px; /* Gap between circles */
+  margin-top: 50px; /* Adjust as needed */
+}
+
+.tab {
+  width: 180px; /* Increased circle size */
+  height: 180px; /* Increased circle size */
+  background-color: lightgreen; /* Light green color */
+  border-radius: 50%; /* Makes the tab circular */
+  box-shadow: 8px 0 12px rgba(0, 0, 0, 0.1); /* Shadow on the right side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition effect */
+}
+
+.tab:hover {
+  background-color: lightblue; /* Change color on hover */
+}
+
+.tab:active {
+  transform: scale(0.9); /* Collapse the circle when clicked */
+}
+
+.tab span {
+  color: white;
+  font-size: 16px; /* Adjust font size */
+}
+
+
+
+.background-image {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 500px; /* Adjust the width of the image */
+  height: 500px; /* Adjust the height of the image */
+  background-image: url('src/assets/image/task - Copy.png'); /* Specify the path to your image */
+  background-size: cover;
+  z-index: -1; /* Ensure the image is behind other content */
+}

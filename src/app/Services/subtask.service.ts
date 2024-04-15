@@ -13,7 +13,7 @@ export class SubtaskService {
   constructor(private http: HttpClient) { }
 
   getAllSubtasks(taskId: string): Observable<Subtask[]> {
-  return this.http.get<Subtask[]>(`${this.apiUrl}/tasks/${taskId}/subtasks`);
+  return this.http.get<any[]>(`${this.apiUrl}/tasks/${taskId}/subtasks`);
 
   //http://localhost:5176/api/AddTask/add
 

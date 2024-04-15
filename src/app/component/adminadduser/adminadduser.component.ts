@@ -1,0 +1,76 @@
+import { Component , OnInit} from '@angular/core';
+import { AdminadduserService } from 'src/app/Services/adminadduser.service';
+import { Guser,Role } from 'src/app/Models/guser';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-adminadduser',
+  templateUrl: './adminadduser.component.html',
+  styleUrls: ['./adminadduser.component.css']
+})
+export class AdminadduserComponent {
+  user: Guser = {
+    name: '',
+    role: 0, // Change this to an empty string
+    domain: '',
+    jobTitle: '',
+    location: '',
+    phone: '',
+    isCr: false,
+    gender: '',
+    doj: new Date(),
+    capgeminiEmailId: '',
+    attendanceCount: 0,
+
+    totalAverageRatingStatus: 0,
+    personalEmailId: '',
+    earlierMentorName: '',
+    finalMentorName: ''
+  };
+
+
+  constructor(private userService: AdminadduserService) { }
+
+  addUser(form: NgForm): void {
+    if (form.valid) {
+
+      // Call the service to add user
+      this.userService.addUser(this.user).subscribe(
+        (response) => {
+          console.log('User added successfully:', response);
+          // Reset the form after successful addition
+          this.resetForm();
+        },
+        (error) => {
+          console.error('Error adding user:', error);
+        }
+      );
+    }
+  }
+
+  resetForm(): void {
+    // Reset the form fields
+    this.user = {
+      name: '',
+      role:Role.Employee, // Change this to an empty string
+      domain: '',
+      jobTitle: '',
+      location: '',
+      phone: '',
+      isCr: false,
+      gender: '',
+      doj: new Date(),
+      capgeminiEmailId: '',
+      attendanceCount: 0,
+
+      totalAverageRatingStatus: 0,
+      personalEmailId: '',
+      earlierMentorName: '',
+      finalMentorName: ''
+    };
+  }
+
+  ngOnInit(): void {
+    // Initialize any necessary data or operations when the component is initialized
+  }
+}

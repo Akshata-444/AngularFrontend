@@ -1,0 +1,59 @@
+.sidebar {
+  width: 100%; /* Maximize the width */
+  max-width: 200px; /* Limit the maximum width */
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #4CAF50; /* Updated color */
+  padding-top: 50px; /* Adjust according to your header height */
+  transition: max-width 0.5s; /* Add transition for smooth width change */
+  font-family: 'Roboto', sans-serif; /* Change font family */
+  font-size: 16px; /* Change font size */
+}
+
+.sidebar:hover {
+  max-width: 250px; /* Adjust the maximum width on hover */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff; /* Adjust the color as needed */
+  display: block;
+  transition: font-size 0.3s; /* Add transition for font size change */
+}
+
+.sidebar ul li a:hover {
+  background-color: #388E3C; /* Darker shade on hover */
+  font-size: 1.1em; /* Increase font size on hover */
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #E8F5E9;
+}
+
+.card-header {
+  padding: 10px;
+  background-color: #C8E6C9;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}

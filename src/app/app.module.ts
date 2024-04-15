@@ -24,6 +24,14 @@ import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component
 import { DeleteBatch } from './Models/deletebatch';
 import { GetsubmissionComponent } from './component/getsubmission/getsubmission.component';
 
+import { GetuserdetailComponent } from './component/getuserdetail/getuserdetail.component';
+import { AdgetbatchComponent } from './component/adgetbatch/adgetbatch.component';
+import { AdminadduserComponent } from './component/adminadduser/adminadduser.component';
+import { GetaduserComponent } from './component/getaduser/getaduser.component';
+import { EtaskComponent } from './component/etask/etask.component';
+import { UsergetsubtaskComponent } from './component/usergetsubtask/usergetsubtask.component';
+
+
 
 
 
@@ -51,7 +59,14 @@ import { GetsubmissionComponent } from './component/getsubmission/getsubmission.
     GettaskComponent,
     SubtaskComponent,
     GetsubtaskComponent,
-    GetsubmissionComponent
+    GetsubmissionComponent,
+    EtaskComponent,
+    GetuserdetailComponent,
+     AdgetbatchComponent,
+     AdminadduserComponent,
+     GetaduserComponent,
+     UsergetsubtaskComponent
+
 
 
 

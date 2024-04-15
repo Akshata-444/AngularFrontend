@@ -1,0 +1,33 @@
+<div>
+  <h2>Get User Details</h2>
+  <form (ngSubmit)="getUserData()">
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" name="userId" [(ngModel)]="userId" required>
+    <button type="submit">Get User</button>
+  </form>
+</div>
+
+<div *ngIf="user">
+  <h2>User Details</h2>
+  <p><strong>Name:</strong> {{ user.name }}</p>
+  <p><strong>User Name:</strong> {{ user.userName }}</p>
+  <p><strong>Role:</strong> {{ user.role }}</p>
+  <p><strong>Domain:</strong> {{ user.domain }}</p>
+  <p><strong>Job Title:</strong> {{ user.jobTitle }}</p>
+  <p><strong>Location:</strong> {{ user.location }}</p>
+  <p><strong>Phone:</strong> {{ user.phone }}</p>
+  <p><strong>Is CR:</strong> {{ user.isCr ? 'Yes' : 'No' }}</p>
+  <p><strong>Gender:</strong> {{ user.gender }}</p>
+  <p><strong>Date of Joining:</strong> {{ user.doj }}</p>
+  <p><strong>Capgemini Email ID:</strong> {{ user.capgeminiEmailId }}</p>
+  <p><strong>Grade:</strong> {{ user.grade }}</p>
+  <p><strong>Total Average Rating Status:</strong> {{ user.totalAverageRatingStatus }}</p>
+  <p><strong>Personal Email ID:</strong> {{ user.personalEmailId }}</p>
+  <p><strong>Earlier Mentor Name:</strong> {{ user.earlierMentorName }}</p>
+  <p><strong>Final Mentor Name:</strong> {{ user.finalMentorName }}</p>
+  <p><strong>Attendance Count:</strong> {{ user.attendanceCount }}</p>
+  <!-- Add other user details here -->
+</div>
+<div *ngIf="!user">
+  <p>Enter a user ID and click "Get User" to fetch user details.</p>
+</div>

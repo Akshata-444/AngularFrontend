@@ -1,0 +1,23 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #3c763d; /* Dark green border */
+}
+
+.table th, .table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: #dff0d8; /* Light green */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #d9ead4; /* Light green for odd rows */
+}

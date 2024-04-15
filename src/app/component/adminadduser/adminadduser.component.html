@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Add User</h2>
+ <form (ngSubmit)="addUser(userForm)" #userForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name" placeholder="Enter name" required>
+    </div>
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select id="role" class="form-control" [(ngModel)]="user.role" name="role" required>
+        <option [ngValue]=0>Employee</option>
+        <option [ngValue]=1>Mentor</option>
+        <option [ngValue]=2>Admin</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="domain">Domain:</label>
+      <input type="text" id="domain" class="form-control" [(ngModel)]="user.domain" name="domain" placeholder="Enter domain" required>
+    </div>
+    <div class="form-group">
+      <label for="jobTitle">Job Title:</label>
+      <input type="text" id="jobTitle" class="form-control" [(ngModel)]="user.jobTitle" name="jobTitle" placeholder="Enter job title" required>
+    </div>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input type="text" id="location" class="form-control" [(ngModel)]="user.location" name="location" placeholder="Enter location" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone" placeholder="Enter phone number" required>
+    </div>
+    <div class="form-group">
+      <label for="isCr">Is CR:</label>
+      <input type="checkbox" id="isCr" class="form-control" [(ngModel)]="user.isCr" name="isCr">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" class="form-control" [(ngModel)]="user.gender" name="gender" placeholder="Enter gender" required>
+    </div>
+    <div class="form-group">
+      <label for="doj">Date of Joining:</label>
+      <input type="date" id="doj" class="form-control" [(ngModel)]="user.doj" name="doj" required>
+    </div>
+    <div class="form-group">
+      <label for="capgeminiEmailId">Capgemini Email ID:</label>
+      <input type="email" id="capgeminiEmailId" class="form-control" [(ngModel)]="user.capgeminiEmailId" name="capgeminiEmailId" placeholder="Enter Capgemini email ID" required>
+    </div>
+    <div class="form-group">
+      <label for="grade">Grade:</label>
+      <input type="text" id="grade" class="form-control" [(ngModel)]="user.grade" name="grade" placeholder="Enter grade">
+    </div>
+    <div class="form-group">
+      <label for="totalAverageRatingStatus">Total Average Rating Status:</label>
+      <input type="number" id="totalAverageRatingStatus" class="form-control" [(ngModel)]="user.totalAverageRatingStatus" name="totalAverageRatingStatus" placeholder="Enter total average rating status" required>
+    </div>
+    <div class="form-group">
+      <label for="personalEmailId">Personal Email ID:</label>
+      <input type="email" id="personalEmailId" class="form-control" [(ngModel)]="user.personalEmailId" name="personalEmailId" placeholder="Enter personal email ID">
+    </div>
+    <div class="form-group">
+      <label for="earlierMentorName">Earlier Mentor Name:</label>
+      <input type="text" id="earlierMentorName" class="form-control" [(ngModel)]="user.earlierMentorName" name="earlierMentorName" placeholder="Enter earlier mentor name">
+    </div>
+    <div class="form-group">
+      <label for="finalMentorName">Final Mentor Name:</label>
+      <input type="text" id="finalMentorName" class="form-control" [(ngModel)]="user.finalMentorName" name="finalMentorName" placeholder="Enter final mentor name">
+    </div>
+    <div class="form-group">
+      <label for="attendanceCount">Attendance Count:</label>
+      <input type="number" id="attendanceCount" class="form-control" [(ngModel)]="user.attendanceCount" name="attendanceCount" placeholder="Enter attendance count" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+

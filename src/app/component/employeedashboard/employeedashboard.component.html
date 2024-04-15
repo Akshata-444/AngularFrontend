@@ -1,1 +1,19 @@
 <p>employeedashboard works!</p>
+
+<div class="sidebar">
+  <ul>
+    <a [routerLink]="['/etask', userId]" onclick="highlightBackground(this)">AssignedTask</a>
+    <li><a href="#">Daily Updates</a></li>
+    <li><a href="#">Feedback</a></li>
+    <a [routerLink]="['/getuserdetail', userId]" onclick="highlightBackground(this)">Details</a>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <!-- Card header content goes here -->
+  </div>
+  <div class="card-body">
+    <!-- Card body content goes here -->
+  </div>
+</div>

@@ -5,6 +5,7 @@ export enum Role {
   Admin
 }
 export class User {
+  userId!: number;
   name!: string;
   role!: Role;
   domain!: string;
@@ -15,12 +16,14 @@ export class User {
   gender!: string;
   doj!: Date;
   capgeminiEmailId!: string;
+  attendanceCount!: number;
+  totalAverageRatingStatus!: number;
   grade!: string;
-  totalAverageRatingStatus: number = 0;
-  personalEmailId?: string;
-  earlierMentorName?: string;
-  finalMentorName?: string;
-  attendanceCount: number = 0;
-  batches:null = null;//Later ocnvert it into a Batch Array
+  batches!: any[];
+personalEmailId: any;
+earlierMentorName: any;
+finalMentorName: any;
+ // batches:null = null;//Later ocnvert it into a Batch Array
+
 }
 
