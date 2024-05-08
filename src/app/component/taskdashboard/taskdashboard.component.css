@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #4CAF50; /* Green color added to the sidebar */
+  background-color: #45b69c;
   padding-top: 20px;
 }
 
@@ -31,32 +31,53 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #45b69c;
   color: white;
-  text-decoration: none; /* Remove underline from links */
+  text-decoration: none;
   transition: background-color 0.3s;
 }
 .sidebar a:hover {
-  background-color: #45a049;
+  background-color: #1f8b66;
+}
+
+/* Table container styling */
+.table-container {
+  margin-left: 280px;
+  padding: 20px;
 }
 
 /* Table styling */
-.table-container {
-  margin-left: 280px; /* Adjusted to match the width of the sidebar */
-  padding: 20px;
-}
 .table {
-  width: calc(100% - 280px); /* Adjusted to match the width of the sidebar */
+  width: calc(100% - 280px);
   border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
-.table th, .table td {
+
+/* Table header styling */
+.table th {
+  padding: 8px;
+  background-color: #45b69c;
+  color: white;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+/* Table body row styling */
+.table tbody tr {
+  background-color: #f0fff4; /* Greenish light color for all rows */
+  border-left: 1px solid #ddd;
+}
+
+/* Table body row styling - alternate rows */
+.table tbody tr:nth-child(odd) {
+  background-color: #c8e6c9;
+}
+
+/* Table cell styling */
+.table td {
   padding: 8px;
   border-bottom: 1px solid #ddd;
-}
-.table th {
-  background-color: #4CAF50;
-  color: white;
-}
-.table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  border-right: 1px solid #ddd;
 }

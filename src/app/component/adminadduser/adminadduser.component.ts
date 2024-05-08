@@ -2,6 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { AdminadduserService } from 'src/app/Services/adminadduser.service';
 import { Guser,Role } from 'src/app/Models/guser';
 import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-adminadduser',
@@ -21,7 +22,6 @@ export class AdminadduserComponent {
     doj: new Date(),
     capgeminiEmailId: '',
     attendanceCount: 0,
-
     totalAverageRatingStatus: 0,
     personalEmailId: '',
     earlierMentorName: '',
@@ -29,7 +29,7 @@ export class AdminadduserComponent {
   };
 
 
-  constructor(private userService: AdminadduserService) { }
+  constructor(private userService: AdminadduserService, private location: Location) { }
 
   addUser(form: NgForm): void {
     if (form.valid) {
@@ -40,9 +40,13 @@ export class AdminadduserComponent {
           console.log('User added successfully:', response);
           // Reset the form after successful addition
           this.resetForm();
+           // Show success notification
+           alert('User added successfully!');
         },
         (error) => {
           console.error('Error adding user:', error);
+
+
         }
       );
     }
@@ -68,6 +72,10 @@ export class AdminadduserComponent {
       earlierMentorName: '',
       finalMentorName: ''
     };
+  }
+
+  goBack(): void {
+    this.location.back(); // Navigate back to the previous location
   }
 
   ngOnInit(): void {

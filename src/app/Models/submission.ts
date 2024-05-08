@@ -1,4 +1,11 @@
 export interface Submission {
-  fileId: number;
-  fileContent: Uint8Array;
+  taskSubmissionsId: number;
+
+  userId: number;
+  subtaskId: number;
+  submittedFileName?: string;
+  fileUploadSubmission?: string;
+  subTaskSubmittedOn?: Date;
+  ratingValue: number;
+  
 }

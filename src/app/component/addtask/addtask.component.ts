@@ -2,8 +2,10 @@ import { Component , OnInit} from '@angular/core';
 import { ActivatedRoute , Router } from '@angular/router';
 import { TaskdashboardService } from 'src/app/Services/taskdashboard.service';
 import { Taskdashboard  } from 'src/app/Models/taskdashboard';
-import { NgForm } from '@angular/forms';
-
+//import { NgForm } from '@angular/forms';
+import { MatSnackBar , MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-addtask',
@@ -12,28 +14,43 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AddtaskComponent  implements OnInit{
+
   batchId!: number;
-  taskName:string='';
-  description:string='';
-  priority:string='';
-  deadLine:Date=new Date();
-  status:string='';
-  comments:string='';
+  taskForm: FormGroup;
 
   constructor(
     private taskService: TaskdashboardService,
     private route: ActivatedRoute,
     private router: Router,
-  ) {}
+    private snackBar: MatSnackBar,
+    private formBuilder: FormBuilder
+  ) {
+    this.taskForm = this.formBuilder.group({
+      taskName: ['', Validators.required],
+      description: ['', Validators.required],
+      priority: ['', Validators.required],
+      deadLine: ['', [Validators.required,this.validateDeadlineDate]],
+      status: ['', Validators.required],
+      comments: ['']
+    });
+  }
 
   ngOnInit(): void {
     this.batchId = this.route.snapshot.params['batchId'];
   }
 
-  addTask(form: NgForm) {
-    if (form.valid) {
+  validateDeadlineDate(control: AbstractControl) {
+    const selectedDate = new Date(control.value);
+    const currentDate = new Date();
+    if (selectedDate < currentDate) {
+      return { pastDate: true };
+    }
+    return null;
+  }
+  addTask() {
+    if (this.taskForm.valid) {
       let priorityValue: number;
-      switch (form.value.priority.toLowerCase()) {
+      switch (this.taskForm.value.priority.toLowerCase()) {
         case 'high':
           priorityValue = 0;
           break;
@@ -48,37 +65,29 @@ export class AddtaskComponent  implements OnInit{
       }
 
       const taskData: any = {
-        taskName: form.value.taskName,
-        description: form.value.description,
+        taskName: this.taskForm.value.taskName,
+        description: this.taskForm.value.description,
         priority: priorityValue,
-        deadLine: form.value.deadLine,
-        status: form.value.status,
-        comments: form.value.comments
+        deadLine: this.taskForm.value.deadLine,
+        status: this.taskForm.value.status,
+        comments: this.taskForm.value.comments
       };
 
       this.taskService.assignTaskToBatch(this.batchId, taskData).subscribe({
-        next: (response) => console.log('Task added successfully', response),
+        next: (response) => {
+          console.log('Task added successfully', response);
+          this.showNotification('Task added successfully');
+          this.taskForm.reset();
+        },
         error: (error) => console.error('There was an error!', error)
       });
-      /*BatchId: this.batchId // Assign the batchId from the route params
-        ,
-      this.taskService.assignTaskToBatch(this.batchId,taskData).subscribe({
-        next: (response) => console.log('Task added successfully', response),
-        error: (error) => console.error('There was an error!', error)
-      });*/
-  /*addTask(): void {
-    this.taskService.assignTaskToBatch(this.batchId, this.task).subscribe(
-      (response) => {
-        console.log('Task added successfully', response);
-        // Handle success here, you can display the response or show a success message to the user
-      },
-      (error) => {
-        console.error('Error adding task', error);
-        // Handle error here, show user-friendly message, etc.
-      }
-    );*/
+    }
   }
-}
 
-
+  private showNotification(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      verticalPosition: 'center' as MatSnackBarVerticalPosition // Duration of the notification in milliseconds
+    });
+  }
 }

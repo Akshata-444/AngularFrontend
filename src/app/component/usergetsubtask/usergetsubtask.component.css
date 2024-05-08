@@ -1,0 +1,101 @@
+/* Style for container */
+.container {
+  display: flex;
+  flex-direction: column; /* Ensure cards stack vertically */
+  align-items: center; /* Center cards horizontally */
+}
+
+/* Style for card */
+/* Style for card */
+.card {
+  min-width: 250px; /* Set minimum width of the card */
+  min-height: 250px; /* Set minimum height of the card */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  font-size: 18px; /* Adjust font size */
+  font-family: Georgia, serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.5); /* Add very dark shadow */
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Georgia, serif;
+}
+
+.card-text {
+  margin-bottom: 15px;
+}
+
+/* Style for buttons */
+.btn {
+  margin-right: 10px;
+  padding: 6px 8px; /* Adjust padding to make the buttons smaller */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+/* Style for download file button */
+.btn-download {
+  padding: 6px 6px; /* Adjust padding to make the button smaller */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-download:hover {
+  background-color: #0056b3;
+}
+
+.card::before {
+  content: '\2190'; /* Unicode for left arrow symbol */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.success {
+  background-color: lightgreen; /* Change to your desired color */
+}
+
+
+

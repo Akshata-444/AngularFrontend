@@ -28,8 +28,16 @@ export class AuthService{
 
   private readonly tokenKey = 'auth_token';
   private readonly roleKey = 'user_role';
+  private readonly userIdKey = 'user_id';
 
   constructor(private http: HttpClient) { }
+
+  isLoggedIn(): boolean {
+    // Check if the authentication token is present in localStorage
+    const token = localStorage.getItem(this.tokenKey);
+    return !!token; // Returns true if token is present, false otherwise
+  }
+
 
   login(formData: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, formData);
@@ -66,4 +74,24 @@ export class AuthService{
   clearUserRole(): void {
     localStorage.removeItem(this.roleKey);
   }
+
+  saveUserId(userId: string): void {
+    localStorage.setItem(this.userIdKey, userId);
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem(this.userIdKey);
+  }
+
+  clearUserId(): void {
+    localStorage.removeItem(this.userIdKey);
+  }
+
+  logout(): void {
+    // Clear token, user role, and user ID from localStorage
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.roleKey);
+    localStorage.removeItem(this.userIdKey);
+  }
+
 }

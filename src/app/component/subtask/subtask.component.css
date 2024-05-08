@@ -1,0 +1,96 @@
+/* Container styling */
+.container {
+  display: flex;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  background-color: #45b69c;
+  padding: 20px;
+  height: 100vh;
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px; /* Add margin to create space between sidebar and main content */
+}
+
+/* Card styling */
+.card {
+  background-color: #f3f9f1;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  width: 100%; /* Adjust width to fit the container */
+}
+
+/* Card header styling */
+.card-header {
+  background-color: #45b69c;
+  color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  background-color: #e8f5e9;
+  border: 1px solid #ccc; /* Add border to the table */
+}
+
+/* Table header styling */
+.table th {
+  background-color: #45b69c;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc; /* Add border to the table headers */
+}
+
+/* Table body styling */
+.table tbody tr:nth-child(even) {
+  background-color: #e8f5e9;
+  border: 1px solid #ccc; /* Add border to the even rows */
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #c8e6c9;
+  border: 1px solid #ccc; /* Add border to the odd rows */
+}
+
+/* Table cell styling */
+.table td {
+  padding: 10px;
+  border: 1px solid #ccc; /* Add border to the table cells */
+}
+
+/* Button styling */
+button {
+  background-color: #45b69c; /* Dark greenish button background */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #1f8b66; /* Darker greenish hover color */
+}
+
+/* Download button styling */
+button.download {
+  background-color: #45b69c; /* Dark greenish button background */
+  color: #fff; /* White text color */
+}
+
+button.download:hover {
+  background-color: #1f8b66; /* Darker greenish hover color */
+}

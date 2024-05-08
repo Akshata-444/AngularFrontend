@@ -20,6 +20,16 @@ export class TaskdashboardService {
     return this.http.post<any>(`${this.apiUrl}/batches/${batchId}/tasks`, task);
 
 }
+
+/*deleteTask(userTaskID: string): Observable<any> {
+  return this.http.delete(`${this.apiUrl}/${userTaskID}`);
+}*/
+
+deleteTask(userTaskID: string): Observable<any> {
+  return this.http.delete(`${this.apiUrl}/${userTaskID}`, { responseType: 'text' });
+}
+
+
 /*getAllTasks(batchId: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/batches/${batchId}/tasks`);
 }*/

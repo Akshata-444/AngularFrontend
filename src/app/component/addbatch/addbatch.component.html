@@ -1,12 +1,17 @@
 <!-- addbatch.component.html -->
-
+<button class="btn btn-secondary" (click)="goBack()">Back</button> <!-- Back button -->
 <div class="background-container">
   <div class="container">
     <h2 class="mb-4 text-center">Add Batch with Employees</h2>
     <form (ngSubmit)="uploadBatch()">
       <div class="mb-3">
         <label for="mentorId" class="form-label">Mentor ID:</label>
-        <input type="number" [(ngModel)]="batch.mentorId" id="mentorId" name="mentorId" class="form-control" required>
+        <input type="number" [(ngModel)]="batch.mentorId" id="mentorId" name="mentorId" class="form-control" required #mentorId="ngModel">
+        <div *ngIf="mentorId.invalid && (mentorId.dirty || mentorId.touched)" class="text-danger">
+          <div  *ngIf="mentorId.errors && mentorId.errors['required']">
+            Mentor ID is required.
+          </div>
+        </div>
       </div>
       <div class="mb-3">
         <label for="batchName" class="form-label">Batch Name:</label>
@@ -29,4 +34,5 @@
       </div>
     </form>
   </div>
+  <div class="background-image"></div>
 </div>

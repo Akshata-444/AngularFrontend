@@ -1,42 +1,25 @@
+<h1>SUBTASK</h1>
+
+
 <div class="container mt-4">
-  <div class="card">
+  <div class="card" *ngFor="let subtask of subtasks" [ngClass]="{'success': subtask.uploaded}">
     <div class="card-header">
-      <h3>Subtasks</h3>
+      <h5 class="card-title">Title: {{ subtask.title }}</h5>
     </div>
     <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let subtask of subtasks">
-            <td>{{ subtask.title}}</td>
-            <td>{{ subtask.description }}</td>
-            <td>
-              <!-- Button to view submission -->
-
-
-            </td>
-
-          </tr>
-          <!-- Add a message when there are no subtasks -->
-          <tr *ngIf="subtasks.length === 0">
-            <td colspan="2" class="text-center">No subtasks available</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="card-text">Description: {{ subtask.description }}</p>
+      <p *ngIf="subtask.fileName">Download File: <button class="btn btn-download" (click)="downloadFile(subtask.subTaskId, subtask.fileName)">Download File</button></p>
+      <div *ngIf="!subtask.uploaded">
+        <label for="fileUpload{{subtask.subTaskId}}">Upload File</label>
+        <input type="file" class="form-control-file" (change)="onFileSelected($event, subtask)" id="fileUpload{{subtask.subTaskId}}">
+        <div class="mt-2">
+        <button type="button" class="btn btn-primary" (click)="uploadSubmission(subtask)" [disabled]="!subtask.fileToUpload">Upload</button>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-body">
-      <a>Upload File</a>
-    </div>
+  </div>
+  <!-- Display a message when there are no subtasks -->
+  <div *ngIf="subtasks.length === 0" class="text-center mt-4">
+    <p>No subtasks available</p>
   </div>
 </div>

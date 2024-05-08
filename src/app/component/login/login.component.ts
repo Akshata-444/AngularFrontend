@@ -15,6 +15,8 @@ export class LoginComponent  {
   //checkotp!:FormGroup;
   jwtToken: string | undefined;
   error: string | undefined;
+  private interval: any; // Variable to store the interval reference
+  private letters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // String containing all uppercase letters
 
 
   constructor(private fb: FormBuilder,
@@ -42,18 +44,20 @@ export class LoginComponent  {
             if (token) {
               const decodedToken = this.parseJwt(token);
               const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+              const userId = response.userId;
               this.loginservice.saveToken(token); // Save JWT token to localStorage
               this.loginservice.saveUserRole(role); // Save user role to localStorage
+              this.loginservice.saveUserId(userId);
 
               // Redirect based on role
               if (role === 'Mentor') {
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/dashboard',response.userId]);
                 // Redirect to Mentor dashboard
               } else if (role === 'Employee') {
 
                 this.router.navigate(['/employeedashboard',response.userId]); // Redirect to Employee dashboard
               } else if (role === 'Admin') {
-                this.router.navigate(['/admindashboard']); // Redirect to Admin dashboard
+                this.router.navigate(['/admindashboard',response.userId]); // Redirect to Admin dashboard
               }
             }
             this.error = undefined;
@@ -78,7 +82,7 @@ export class LoginComponent  {
 
       return JSON.parse(jsonPayload);
     }
-  }
+
 
 
     /*onSubmit(): void {
@@ -121,3 +125,32 @@ export class LoginComponent  {
       return JSON.parse(jsonPayload);
     }
   }*/
+
+  getRandomLetter(): string {
+    const randomIndex = Math.floor(Math.random() * this.letters.length);
+    return this.letters[randomIndex];
+  }
+
+  startAnimation(): void {
+    let index = 0;
+    const textLetters = document.querySelectorAll('#trackItText span');
+
+    // Clear any previous interval
+    clearInterval(this.interval);
+
+    // Start animation
+    this.interval = setInterval(() => {
+      (textLetters[index] as HTMLElement).innerText = this.getRandomLetter();
+      index = (index + 1) % textLetters.length;
+    }, 100); // Adjust the timing as needed
+
+    // Stop animation after 30 seconds and reset text to "TrackIt"
+    setTimeout(() => {
+      clearInterval(this.interval); // Stop the animation
+      textLetters.forEach((letter, i) => {
+        (letter as HTMLElement).innerText = "TrackIt"[i];
+      });
+    }, 5000); // 30 seconds in milliseconds
+  }
+
+}

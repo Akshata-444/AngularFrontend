@@ -1,8 +1,15 @@
-<div class="container mt-4">
+
+<div class="search-container">
+  <input type="text" class="search-input" placeholder="Search...">
+</div>
+
+<div class="task-table">
   <div class="card">
+
     <div class="card-header">
       <h3>Tasks</h3>
     </div>
+
     <div class="card-body">
       <table class="table">
         <thead>
@@ -14,6 +21,8 @@
             <th>Status</th>
             <th>Comments</th>
             <th>View</th>
+            <th>Delete</th>
+
           </tr>
         </thead>
         <tbody>
@@ -25,9 +34,14 @@
             <td>{{ task.status }}</td>
             <td>{{ task.comments }}</td>
             <td><button class="btn btn-primary" (click)="getsubTask(task.userTaskID)">View SubTask</button></td>
+            <td><button (click)="deleteTask(task.userTaskID)">Delete Task</button></td>
+
+
+
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+

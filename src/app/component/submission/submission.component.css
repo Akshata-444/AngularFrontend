@@ -1,0 +1,68 @@
+/* component.css */
+
+/* Styling for the main content area */
+.main-content {
+  margin: 0 auto; /* Center the content horizontally */
+  max-width: 400px; /* Adjust the maximum width of the content area as needed */
+}
+
+/* Styling for the table */
+table {
+  width: 100%; /* Make the table fill the entire width of its container */
+  border-collapse: collapse;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Darker and more opaque shadow */
+  border-radius: 10px; /* Rounded border edges */
+}
+
+/* Rest of the table styling remains the same */
+
+/* Rest of the table styling remains the same */
+
+
+/* Rest of the table styling remains the same */
+
+
+/* Rest of the table styling remains the same */
+
+
+/* Styling for table headers */
+th {
+  background-color: #45b69c; /* Background color */
+  color: white; /* Text color */
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Styling for table cells */
+td {
+  padding: 10px;
+}
+
+/* Styling for alternate rows */
+tr:nth-child(even) {
+  background-color: #ddf2eb; /* Lighter shade of #45b69c */
+}
+
+tr:nth-child(odd) {
+  background-color: #e9f7f3; /* Another lighter shade of #45b69c */
+}
+
+/* Styling for hover effect */
+tr:hover {
+  background-color: #ddd; /* Darker gray background on hover */
+}
+
+/* Styling for the download button */
+button {
+  padding: 8px 16px;
+  background-color: #45b69c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #3c8d76; /* Darker shade on hover */
+}

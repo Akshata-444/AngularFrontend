@@ -12,34 +12,28 @@ export class SubtaskService {
   private apiUrl = 'http://localhost:5176/api/AddTask';
   constructor(private http: HttpClient) { }
 
-  getAllSubtasks(taskId: string): Observable<Subtask[]> {
+
+  getSubtaskById(subtaskId: number): Observable<Subtask> {
+    return this.http.get<Subtask>(`${this.apiUrl}/Sub/${subtaskId}`);}
+
+  getAllSubtasks(taskId: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/tasks/${taskId}/subtasks`);
-
-  //http://localhost:5176/api/AddTask/add
-
-
-
   }
 
-  /*addSubtask(subtask: Getsubtask): Observable<any> { // Modify method signature to accept Getsubtask
-    return this.http.post<any>(`${this.apiUrl}/add`, subtask);}*/
+ getSubtasks(taskId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/tasks/${taskId}/subtask`);}
 
-   /* addSubTask(subtask: Getsubtask): Observable<any> {
-      const formData: FormData = new FormData();
 
-      formData.append('Title', subtask.Title);
-      formData.append('Description', subtask.Description);
-      formData.append('TaskId', subtask.TaskId.toString());
 
-      if (subtask.FileUploadTaskFileUpload) {
-        formData.append('FileUploadTaskFileUpload', subtask.FileUploadTaskFileUpload, subtask.FileUploadTaskFileUpload.name);
-      }
 
-      return this.http.post<any>(`${this.apiUrl}/add`, formData);
-    }*/
-   /* addSubtask(formData: FormData): Observable<any> {
-      return this.http.post<any>(`${this.apiUrl}/add`, formData);
-    }*/
+  deleteSubtask(subtaskId:number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/subtasks/${subtaskId}`);
+  }
+
+
+    downloadSubtaskFile(subtaskId: number): Observable<Blob> {
+      return this.http.get(`${this.apiUrl}/subtasks/${subtaskId}/download`, { responseType: 'blob' });
+    }
 
     addSubtask(subtask: FormData): Observable<string> {
       return this.http.post(`${this.apiUrl}/add`, subtask, { responseType: 'text' })
@@ -60,5 +54,6 @@ export class SubtaskService {
             throw error; // Rethrow the error to propagate it to the caller
           })
         );
+
     }
   }

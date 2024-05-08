@@ -1,23 +1,40 @@
-.table {
+.main-content {
+  margin: 0 auto; /* Center the main content horizontally */
+  padding: 20px;
+  max-width: 800px; /* Optionally set a max-width to prevent the table from stretching too wide */
+}
+
+/* Table styling */
+.batch-table {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid #3c763d; /* Dark green border */
+  border-spacing: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add dark shadow */
 }
-
-.table th, .table td {
+.batch-table th, .batch-table td {
   padding: 8px;
-  border-bottom: 1px solid #ddd;
   text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+.batch-table th {
+  background-color: #45b69c; /* Set heading background color */
+  color: white; /* Set heading text color */
+}
+.batch-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Set background color for odd rows */
+}
+.batch-table tbody tr:hover {
+  background-color: #ddd;
 }
 
-.table th {
-  background-color: #dff0d8; /* Light green */
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* Light gray for even rows */
-}
-
-.table tbody tr:nth-child(odd) {
-  background-color: #d9ead4; /* Light green for odd rows */
+.background-image {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  height: 500px;
+  background-image: url('src/assets/image/task - Copy.png');
+  background-size: cover;
+  z-index: -1;
 }

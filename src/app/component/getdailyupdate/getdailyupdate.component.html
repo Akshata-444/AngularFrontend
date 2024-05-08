@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <div class="moving-text">
+      <h2 data-text="Find Daily Updates by User ID"></h2>
+    </div>
+    <input type="number" class="search-input" placeholder="Enter User ID" [(ngModel)]="userId">
+    <button class="search-button" (click)="loadDailyUpdates()">Search</button>
+  </div>
+
+  <div *ngIf="dailyUpdates" class="card-container">
+    <h3>Daily Updates:</h3>
+    <div class="cards">
+      <div class="card" *ngFor="let update of dailyUpdates">
+        <div class="card-header">
+          <strong>Title:</strong> {{ update.title }}
+        </div>
+        <div class="card-content">
+          <strong>Uploaded At:</strong> {{ update.uploadedAt | date }} <br>
+          <strong>Learned Today:</strong> {{ update.learnedToday }} <br>
+          <strong>Plan for Tomorrow:</strong> {{ update.planForTomorrow }} <br>
+          <strong>Challenge:</strong> {{ update.challenge }} <br>
+          <strong>OneDrive Link:</strong> {{ update.oneDriveLink }} <br>
+          <strong>Summary:</strong> {{ update.summary }} <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2>Add Daily Update</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addDailyUpdate()">
+
+        <div class="form-group mb-2">
+          <label class="form-label">Title:</label>
+          <input class="form-control" type="text" name="title" [(ngModel)]="dailyUpdate.title" required>
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">Uploaded At:</label>
+          <input class="form-control" type="datetime-local" name="uploadedAt" [(ngModel)]="dailyUpdate.uploadedAt" required>
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">Learned Today:</label>
+          <textarea class="form-control" name="learnedToday" [(ngModel)]="dailyUpdate.learnedToday" rows="4" required></textarea>
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">Plan For Tomorrow:</label>
+          <textarea class="form-control" name="planForTomorrow" [(ngModel)]="dailyUpdate.planForTomorrow" rows="4" required></textarea>
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">Challenge:</label>
+          <textarea class="form-control" name="challenge" [(ngModel)]="dailyUpdate.challenge" rows="4" required></textarea>
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">OneDrive Link:</label>
+          <input class="form-control" type="text" name="oneDriveLink" [(ngModel)]="dailyUpdate.oneDriveLink">
+        </div>
+        <div class="form-group mb-2">
+          <label class="form-label">Summary:</label>
+          <textarea class="form-control" name="summary" [(ngModel)]="dailyUpdate.summary" rows="4"></textarea>
+        </div>
+        <input type="hidden" name="userId" [(ngModel)]="dailyUpdate.userId">
+        <button class="btn btn-primary" type="submit">Add Daily Update</button>
+      </form>
+    </div>
+  </div>
+</div>

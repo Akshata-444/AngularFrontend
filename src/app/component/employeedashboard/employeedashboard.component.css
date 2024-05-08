@@ -1,59 +1,67 @@
+/* Sidebar styling */
+.card p.greeting {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em; /* Increase the font size */
+  color: white; /* Set the color to white */
+}
+
 .sidebar {
-  width: 100%; /* Maximize the width */
-  max-width: 200px; /* Limit the maximum width */
+  height: 100%;
+  width: 250px;
   position: fixed;
-  left: 0;
   top: 0;
-  bottom: 0;
-  background-color: #4CAF50; /* Updated color */
-  padding-top: 50px; /* Adjust according to your header height */
-  transition: max-width 0.5s; /* Add transition for smooth width change */
-  font-family: 'Roboto', sans-serif; /* Change font family */
-  font-size: 16px; /* Change font size */
+  left: 0;
+  background-color: #45b69c;
+  padding-top: 20px;
 }
 
-.sidebar:hover {
-  max-width: 250px; /* Adjust the maximum width on hover */
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  padding: 10px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #fff; /* Adjust the color as needed */
+/* Button styling */
+.sidebar a {
   display: block;
-  transition: font-size 0.3s; /* Add transition for font size change */
-}
-
-.sidebar ul li a:hover {
-  background-color: #388E3C; /* Darker shade on hover */
-  font-size: 1.1em; /* Increase font size on hover */
-}
-
-.card {
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  margin-top: 50px;
-  background-color: #E8F5E9;
-}
-
-.card-header {
+  width: 100%;
   padding: 10px;
-  background-color: #C8E6C9;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #45b69c;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-family: Georgia, serif;
 }
 
-.card-body {
-  padding: 20px;
+.sidebar a:hover {
+  background-color: #1f8b66;
+}
+
+/* Card styling */
+.task-card {
+  background-color: #6fc7b9; /* Lighter shade of the sidebar color */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  width: calc(50% - 30px); /* Adjusted width to fit two cards in a row with margin */
+  height: 200px; /* Set a fixed height for the cards */
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  color: #333;
+  font-family: Georgia, serif;
+}
+
+.card-container {
+  margin-left: 280px; /* Adjusted margin to create space for the sidebar and gap between cards */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute space between cards */
+}
+
+.card-container .task-card {
+  width: calc(50% - 30px); /* Adjusted width to fit two cards in a row with margin */
+}
+
+@media screen and (max-width: 768px) {
+  .card-container .task-card {
+    width: calc(50% - 20px); /* Adjusted width to fit two cards in a row with margin on smaller screens */
+  }
 }

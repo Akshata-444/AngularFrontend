@@ -1,0 +1,109 @@
+.search-container {
+  margin-bottom: 20px; /* Add space between the search bar and the task table */
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px; /* Add padding */
+  margin: 8px 0; /* Add some margin */
+  box-sizing: border-box;
+  border: 2px solid #45b69c; /* Set border color */
+  border-radius: 25px; /* Add border radius for a rounded shape */
+  transition: 0.3s; /* Add transition effect */
+  outline: none; /* Remove outline */
+}
+
+.search-input:focus {
+  border-color: #1f8b66; /* Change border color on focus */
+}
+
+
+.container {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px; /* Add margin to create space between sidebar and main content */
+}
+
+
+
+.card-header {
+  background-color: #45b69c;
+  color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px;
+}
+.card {
+  background-color: #f3f9f1;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  width: 80%; /* Adjust width to make the card smaller */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 20px; /* Add padding */
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  background-color: #e8f5e9; /* Add some space between sidebar and task table */
+  border-radius: 20px; /* Add border radius */
+  margin-top: 20px; /* Add margin to separate from the card */
+}
+
+
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  background-color: #e8f5e9; /* Add some space between sidebar and task table */
+  border-radius: 20px; /* Add border radius */
+  margin-top: 20px; /* Add margin to separate from the card */
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: separate; /* Use separate border-collapse */
+  border-spacing: 0; /* Set border spacing to 0 */
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc; /* Add a light border */
+  padding: 10px;
+}
+
+.table th {
+  background-color: #45b69c;
+  color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #e8f5e9;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #c8e6c9;
+}
+
+button {
+  background-color: #45b69c; /* Dark greenish button background */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #1f8b66; /* Darker greenish hover color */
+}

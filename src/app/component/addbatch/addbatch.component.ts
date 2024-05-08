@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddBatchService } from 'src/app/Services/add-batch.service';
 import { Addbatch } from 'src/app/Models/addbatch';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-addbatch',
@@ -16,7 +17,7 @@ export class AddbatchComponent {
     employeeInfoExcelFile: null // Initialize it as null
   };
 
-  constructor(private batchService: AddBatchService) {}
+  constructor(private batchService: AddBatchService, private location: Location) {}
 
   onFileChange(event: any): void {
     const files: FileList = event.target.files;
@@ -25,18 +26,35 @@ export class AddbatchComponent {
     }
   }
 
+  goBack(): void {
+    this.location.back(); // Navigate back to the previous location
+  }
+
   uploadBatch(): void {
     this.batchService.uploadBatchWithEmployees(this.batch)
       .subscribe(
         response => {
           console.log('Batch uploaded successfully', response);
           // Handle success response
+          this.resetForm();
+          alert('Batch created successfully!');
         },
         error => {
           console.error('Error uploading batch', error);
           // Handle error
         }
       );
+  }
+
+  resetForm(): void {
+    // Reset the form fields by reinitializing the 'batch' object
+    this.batch = {
+      mentorId: 0,
+      batchName: '',
+      domain: '',
+      description: '',
+      employeeInfoExcelFile: null
+    };
   }
 
 }

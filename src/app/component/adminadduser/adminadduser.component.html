@@ -1,15 +1,19 @@
+<button class="btn btn-secondary" (click)="goBack()">Back</button> <!-- Back button -->
+ <form (ngSubmit)="addUser(userForm)" #userForm="ngForm">
+
 <div class="container">
   <h2>Add User</h2>
- <form (ngSubmit)="addUser(userForm)" #userForm="ngForm">
+
 
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name" placeholder="Enter name" required>
     </div>
+    
     <div class="form-group">
       <label for="role">Role:</label>
       <select id="role" class="form-control" [(ngModel)]="user.role" name="role" required>
-        <option [ngValue]=0>Employee</option>
+       <!--<option [ngValue]=0>Employee</option>-->
         <option [ngValue]=1>Mentor</option>
         <option [ngValue]=2>Admin</option>
       </select>
@@ -31,10 +35,10 @@
       <label for="phone">Phone:</label>
       <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone" placeholder="Enter phone number" required>
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="isCr">Is CR:</label>
       <input type="checkbox" id="isCr" class="form-control" [(ngModel)]="user.isCr" name="isCr">
-    </div>
+    </div>-->
     <div class="form-group">
       <label for="gender">Gender:</label>
       <input type="text" id="gender" class="form-control" [(ngModel)]="user.gender" name="gender" placeholder="Enter gender" required>

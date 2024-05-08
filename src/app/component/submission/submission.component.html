@@ -1,0 +1,41 @@
+<h2>Submissions</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task Submissions ID</th>
+      <th>User ID</th>
+
+
+      <th>Submitted File Name</th>
+
+      <th>Sub Task Submitted On</th>
+      <th>Action</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let submission of submissions">
+      <td>{{ submission.taskSubmissionsId }}</td>
+      <td>{{ submission.userId }}</td>
+
+
+      <td>{{ submission.submittedFileName }}</td>
+
+      <td>{{ submission.subTaskSubmittedOn | date }}</td>
+
+      <td>
+        <button (click)="downloadSubmission(subtaskId, submission.taskSubmissionsId, submission.submittedFileName!)">Download</button>
+      </td>
+      <td>
+        <div>
+          <input type="number" [(ngModel)]="submission.ratingValue" name="rating" placeholder="Enter rating">
+          <button (click)="submitRating(submission)">Submit</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- sidebar.component.html -->
+
+

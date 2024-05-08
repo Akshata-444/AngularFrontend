@@ -1,18 +1,16 @@
-<div class="tab-container">
+<div class="sidebar">
 
-
+  <a class="greeting">USER ID {{ userId }}</a>
   <a href="/adminadduser" class="tab"><span>Add Employee</span></a>
   <a href="/getaduser" class="tab"><span>View Employee</span></a>
 
   <a href="/adgetbatch" class="tab"><span>View Batch</span></a>
   <a href="/addbatch" class="tab"><span>Add Batch</span></a>
+  <a [routerLink]="['/getuserdetail', userId]" onclick="highlightBackground(this)">Profile</a>
+  <a class="nav-link" href="#" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
   <!-- Your existing HTML content here -->
 
 <div class="background-image"></div>
-<div class="background-animation">
-  <div class="ball"></div>
-  <div class="ball"></div>
-  <div class="ball"></div>
-</div>
+
 
 </div>

@@ -1,0 +1,30 @@
+<div style="display: flex; justify-content: center;">
+  <h1 style="font-family: Georgia, serif; font-size: 24px;">Rating</h1>
+</div>
+
+
+<div *ngIf="ratings.length > 0">
+  <div *ngFor="let rating of ratings">
+    <div *ngIf="rating.subtaskId !== undefined">
+      <div *ngFor="let subtask of subtasks" class="card">
+        <div class="card-content">
+          <p>Subtask Title: {{ subtask.title }}</p>
+          <p>Subtask Description: {{ subtask.description }}</p>
+          <p>
+            Rating Value:
+            <ng-container *ngFor="let i of [].constructor(rating.ratingValue); let j = index">
+              😊 <!-- Smiley emoji -->
+            </ng-container>
+          </p>
+          <p *ngIf="rating.comments">Comments: {{ rating.comments }}</p>
+          <!-- Add more details here if needed -->
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+
+<div *ngIf="ratings.length === 0">
+  <p>No ratings found for this user.</p>
+</div>

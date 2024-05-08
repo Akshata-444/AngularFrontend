@@ -1,29 +1,45 @@
-<div *ngIf="tasks.length > 0">
-  <h2>Tasks</h2>
-  <table class="task-table">
-    <thead>
-      <tr>
-        <th>Task Name</th>
-        <th>Description</th>
-        <th>Priority</th>
-        <th>Deadline</th>
-        <th>View</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let task of tasks">
-        <td>{{ task.taskName }}</td>
-        <td>{{ task.description }}</td>
-        <td>{{ task.priority }}</td>
-        <td>{{ task.deadLine }}</td>
-        <td>
 
-          <a [routerLink]="['/usergetsubtask', task.userTaskID]" onclick="highlightBackground(this)"> View </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div *ngIf="tasks.length === 0">
-  <p>No tasks found.</p>
-</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Dashboard</title>
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-h6iZwfw4M5KvhUpydFXTyjKrNtby57tGzLLezNv3Fuy4XTGszsokhIbIpw5lwOWC" crossorigin="anonymous">
+</head>
+<body>
+
+  <p class="move-text">Complete all your TASKS!! on time.</p>
+
+  <div class="main-content">
+
+    <div *ngIf="tasks.length > 0" class="task-container">
+      <h2>TASK</h2>
+      <P >Priority : 0 = HIGH </P>
+        <P>Priority : 1 = LOW</P>
+        <P>Priority : 2 = MEDIUM</P>
+      <div class="task-cards">
+        <div *ngFor="let task of tasks" class="task-card">
+          <h3>Task : {{ task.taskName }}</h3>
+          <p>Description : {{ task.description }}</p>
+           <p>Priority : {{ task.priority }}</p>
+          <p>Deadline : {{ task.deadLine }}</p>
+          <a [routerLink]="['/usergetsubtask', task.userTaskID]" class="view-btn" onclick="highlightBackground(this)">View</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="tasks.length === 0">
+      <p>No tasks found.</p>
+    </div>
+
+<div class="sidebar">
+  <a class="greeting">USER ID {{ userId }}</a>
+
+     <a [routerLink]="['/adddailyupdate', userId]" onclick="highlightBackground(this)">Daily Update</a>
+      <a href="#">Assigned Batch</a>
+      <a href="#">Feedback</a>
+      <a [routerLink]="['/getuserdetail', userId]" onclick="highlightBackground(this)">Details</a>
+
+  </div>

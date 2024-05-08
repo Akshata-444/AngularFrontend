@@ -3,6 +3,7 @@ import { TaskdashboardService } from 'src/app/Services/taskdashboard.service';
 import { Taskdashboard } from 'src/app/Models/taskdashboard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subtask } from 'src/app/Models/subtask';
+import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-gettask',
@@ -14,7 +15,7 @@ export class GettaskComponent implements OnInit{
   batchId!: number;
   userTaskID! : string;
 
-  constructor(private taskService: TaskdashboardService, private route: ActivatedRoute,private router:Router) { }
+  constructor(private taskService: TaskdashboardService, private route: ActivatedRoute,private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -23,6 +24,7 @@ export class GettaskComponent implements OnInit{
       this.getAllTasks();
     });
   }
+
 
   getAllTasks(): void {
     // Check if batchId is not null or undefined
@@ -42,4 +44,21 @@ export class GettaskComponent implements OnInit{
     this.router.navigate(['/subtask', userTaskID]);
   }
 
-}
+  deleteTask(userTaskID: string): void {
+    this.taskService.deleteTask(userTaskID).subscribe(
+      () => {
+        console.log('Task deleted successfully.');
+        // Remove the deleted task from the tasks array
+        this.tasks = this.tasks.filter(task => task.userTaskID !== userTaskID);
+        this.snackBar.open('Task deleted successfully.', 'Close',{
+          duration: 3000, // Duration in milliseconds
+          verticalPosition: 'top' // Position at the top of the screen
+        });
+      },
+      error => {
+        console.error('Error deleting task:', error);
+        // Handle error scenarios here
+      }
+    );
+
+}}

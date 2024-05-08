@@ -1,19 +1,63 @@
-<p>employeedashboard works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-h6iZwfw4M5KvhUpydFXTyjKrNtby57tGzLLezNv3Fuy4XTGszsokhIbIpw5lwOWC" crossorigin="anonymous">
+</head>
+<body>
 
 <div class="sidebar">
-  <ul>
+<a class="greeting">USER ID {{ userId }}</a>
     <a [routerLink]="['/etask', userId]" onclick="highlightBackground(this)">AssignedTask</a>
-    <li><a href="#">Daily Updates</a></li>
-    <li><a href="#">Feedback</a></li>
-    <a [routerLink]="['/getuserdetail', userId]" onclick="highlightBackground(this)">Details</a>
-  </ul>
+   <a [routerLink]="['/adddailyupdate', userId]" onclick="highlightBackground(this)">Daily Update</a>
+    <a href="#">Assigned Batch</a>
+    <a [routerLink]="['/userrating', userId]" onclick="highlightBackground(this)">Rating</a>
+    <a [routerLink]="['/getuserdetail', userId]" onclick="highlightBackground(this)"><i class="fas fa-user"></i> Profile</a>
+    <a class="nav-link" href="#" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
-<div class="card">
-  <div class="card-header">
-    <!-- Card header content goes here -->
-  </div>
-  <div class="card-body">
-    <!-- Card body content goes here -->
+<div class="main-content">
+  <div class="card-container">
+    <div class="task-card">
+
+        <!-- Front face content goes here -->
+        <h2>TASK</h2>
+        <p>Complete Your task on time.</p>
+        <p>Each Task will have mulitple subatsk</p>
+      </div>
+
+
+
+    <div class="task-card">
+      <h2>DAILY UPDATES</h2>
+      <p>Give Your daily updates on time.</p>
+      <p>Upload a OnedriveLink for submitting your handson work</p>
+      <!-- Card body content goes here -->
+    </div>
+    </div>
+
+
+  <div class="card-container">
+    <div class="task-card">
+      <h2>SUBMISSION</h2>
+      <p>Upload the files for every subtask.</p>
+      <p>Do not copy the task.</p>
+      <!-- Card body content goes here -->
+    </div>
+
+
+
+    <div class="task-card">
+      <h2>Rating</h2>
+      <p>Rating will be given for your every submission</p>
+      <p>Your overall profile will get an average rating.</p>
+      <!-- Card body content goes here -->
+    </div>
   </div>
 </div>
+
+

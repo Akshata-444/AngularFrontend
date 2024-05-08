@@ -17,5 +17,5 @@ export class AdminadduserService {
 
 
   getUser(userId: number): Observable<Getaduser> {
-    return this.http.get<Getaduser>(`${this.baseUrl}/${userId}`);
+    return this.http.get<Getaduser>(`${this.baseUrl}/GetuserByUserId/${userId}`);
 }}

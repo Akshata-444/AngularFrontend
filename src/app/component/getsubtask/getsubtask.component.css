@@ -1,0 +1,57 @@
+/* Centering the container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Styling the form container */
+/* Styling the form container */
+.form-container {
+  background-color: #f3f9f1; /* Light greenish background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+  padding: 20px; /* Add padding around the form */
+  width: 400px; /* Set the width of the form */
+}
+
+/* Form input styling */
+input[type="text"],
+textarea {
+  width: calc(100% - 16px); /* Subtract padding and border width */
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #45b69c; /* Dark greenish border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #e1f1e6; /* Light greenish input background */
+  color: #333; /* Dark text color */
+  font-size: 14px; /* Smaller font size */
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Button styling */
+button {
+  background-color: #45b69c; /* Dark greenish button background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1f8b66; /* Darker greenish hover color */
+}
+
+/* File upload styling */
+input[type="file"] {
+  margin-top: 5px;
+}

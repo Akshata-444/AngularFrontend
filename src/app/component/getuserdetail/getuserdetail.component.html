@@ -1,21 +1,33 @@
-<p>getuserdetail works!</p>
-<div *ngIf="user">
-  <h2>User Details</h2>
-  <p>User ID: {{ user.userId }}</p>
-  <p>Name: {{ user.name }}</p>
-  <p>Role: {{ user.role }}</p>
-  <p>Domain: {{ user.domain }}</p>
-  <p>Job Title: {{ user.jobTitle }}</p>
-  <p>Location: {{ user.location }}</p>
-  <p>Phone: {{ user.phone }}</p>
-  <p>Is Cr: {{ user.isCr ? 'Yes' : 'No' }}</p>
-  <p>Gender: {{ user.gender }}</p>
-  <p>Date of Joining: {{ user.doj | date }}</p>
-  <p>Capgemini Email ID: {{ user.capgeminiEmailId }}</p>
-  <p>Grade: {{ user.grade ? user.grade : 'N/A' }}</p>
-  <p>Total Average Rating Status: {{ user.totalAverageRatingStatus }}</p>
-  <p>Personal Email ID: {{ user.personalEmailId ? user.personalEmailId : 'N/A' }}</p>
-  <p>Earlier Mentor Name: {{ user.earlierMentorName ? user.earlierMentorName : 'N/A' }}</p>
-  <p>Final Mentor Name: {{ user.finalMentorName ? user.finalMentorName : 'N/A' }}</p>
-  <p>Attendance Count: {{ user.attendanceCount }}</p>
-</div>
+<p class="greeting">Hello {{ user.name }}</p>
+
+
+  <!-- Blank Card -->
+ <div ></div>
+
+
+ <h2>User Details</h2>
+
+  <!-- User Details Card -->
+  <div class="row">
+    <div *ngIf="user" class="card">
+
+      <p>User ID: {{ user.userId }}</p>
+      <p>Name: {{ user.name }}</p>
+      <p>Role: {{ user.role }}</p>
+      <p>Domain: {{ user.domain }}</p>
+      <p>Job Title: {{ user.jobTitle }}</p>
+      <p>Location: {{ user.location }}</p>
+      <p>Phone: {{ user.phone }}</p>
+      <p>Is Cr: {{ user.isCr ? 'Yes' : 'No' }}</p>
+      <p>Gender: {{ user.gender }}</p>
+      <p>Date of Joining: {{ user.doj | date }}</p>
+      <p>Capgemini Email ID: {{ user.capgeminiEmailId }}</p>
+      <p>Grade: {{ user.grade ? user.grade : 'N/A' }}</p>
+      <p>Total Average Rating Status: {{ user.totalAverageRatingStatus }}</p>
+      <p>Personal Email ID: {{ user.personalEmailId ? user.personalEmailId : 'N/A' }}</p>
+      <p>Earlier Mentor Name: {{ user.earlierMentorName ? user.earlierMentorName : 'N/A' }}</p>
+      <p>Final Mentor Name: {{ user.finalMentorName ? user.finalMentorName : 'N/A' }}</p>
+      <p>Attendance Count: {{ user.attendanceCount }}</p>
+    </div>
+  </div>
+

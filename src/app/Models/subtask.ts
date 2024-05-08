@@ -1,9 +1,16 @@
 export class Subtask {
-  //subTaskId: number;
+  userId!: number;
+  subTaskId!: number;
   title!: string;
   description!: string;
   taskId!: string;
-  //fileUploadTaskPdf: string; // Assuming file path or URL
+  //fileUploadTaskPdf!: string; // Assuming file path or URL
   //creationDate: Date;
-  //fileName: string;
+  fileName!: string;
+  uploaded!: boolean;
+  fileToUpload: File | null;
+
+  constructor() {
+    this.fileToUpload = null; // Initialize fileToUpload to null
+  }
 }

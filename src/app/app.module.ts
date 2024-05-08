@@ -22,7 +22,7 @@ import { GettaskComponent } from './component/gettask/gettask.component';
 import { SubtaskComponent } from './component/subtask/subtask.component';
 import { GetsubtaskComponent } from './component/getsubtask/getsubtask.component';
 import { DeleteBatch } from './Models/deletebatch';
-import { GetsubmissionComponent } from './component/getsubmission/getsubmission.component';
+
 
 import { GetuserdetailComponent } from './component/getuserdetail/getuserdetail.component';
 import { AdgetbatchComponent } from './component/adgetbatch/adgetbatch.component';
@@ -30,6 +30,17 @@ import { AdminadduserComponent } from './component/adminadduser/adminadduser.com
 import { GetaduserComponent } from './component/getaduser/getaduser.component';
 import { EtaskComponent } from './component/etask/etask.component';
 import { UsergetsubtaskComponent } from './component/usergetsubtask/usergetsubtask.component';
+import { GetmentordetailsComponent } from './component/getmentordetails/getmentordetails.component';
+import { SubmissionComponent } from './component/submission/submission.component';
+import { AdddailyupdateComponent } from './component/adddailyupdate/adddailyupdate.component';
+import { GetdailyupdateComponent } from './component/getdailyupdate/getdailyupdate.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastrModule } from 'ngx-toastr';
+import { UserratingComponent } from './component/userrating/userrating.component';
+
+
+
 
 
 
@@ -59,13 +70,19 @@ import { UsergetsubtaskComponent } from './component/usergetsubtask/usergetsubta
     GettaskComponent,
     SubtaskComponent,
     GetsubtaskComponent,
-    GetsubmissionComponent,
+
     EtaskComponent,
     GetuserdetailComponent,
      AdgetbatchComponent,
      AdminadduserComponent,
      GetaduserComponent,
-     UsergetsubtaskComponent
+     UsergetsubtaskComponent,
+     GetmentordetailsComponent,
+     SubmissionComponent,
+     AdddailyupdateComponent,
+     GetdailyupdateComponent,
+     UserratingComponent,
+
 
 
 
@@ -88,6 +105,14 @@ import { UsergetsubtaskComponent } from './component/usergetsubtask/usergetsubta
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-center',
+       // Set the position to center
+    })
+
+
 
 
 

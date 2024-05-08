@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { AdminadduserService } from 'src/app/Services/adminadduser.service';
 import { Getaduser } from 'src/app/Models/getaduser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-getaduser',
@@ -11,7 +12,7 @@ export class GetaduserComponent implements OnInit {
   user: Getaduser | undefined;
   userId: number | undefined;
 
-  constructor(private userService: AdminadduserService) { }
+  constructor(private userService: AdminadduserService,  private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,13 @@ export class GetaduserComponent implements OnInit {
           }
         );
     }
+
+
+
+  }
+
+  goBack(): void {
+    this.location.back(); // Navigate back to the previous location
   }
 
 }

@@ -1,3 +1,5 @@
+
+
 <div class="container mt-4">
   <div class="card">
     <div class="card-header">
@@ -10,17 +12,22 @@
             <th>Title</th>
             <th>Description</th>
             <th>Action</th>
+            <th>View</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let subtask of subtasks">
             <td>{{ subtask.title }}</td>
             <td>{{ subtask.description }}</td>
-            <td>
-              <!-- Button to view submission -->
+            <td><button (click)="downloadFile(subtask.subTaskId, subtask.fileName)">Download File</button>
 
-              <a [routerLink]="['/getsubmission', subtaskId]" onclick="highlightBackground(this)">View submission</a>
             </td>
+            <td>
+              <button [routerLink]="['/submission', subtask.subTaskId]" onclick="highlightBackground(this)">View submission</button>
+            </td>
+           <td> <button (click)="deleteSubtask(subtask.subTaskId)">Delete</button></td>
+
 
           </tr>
           <!-- Add a message when there are no subtasks -->
@@ -36,7 +43,7 @@
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
-      <a [routerLink]="['/getsubtask', TaskId]" onclick="highlightBackground(this)">Add Subtask</a>
+      <button [routerLink]="['/getsubtask', TaskId]" onclick="highlightBackground(this)">Add Subtask</button>
     </div>
   </div>
 </div>
